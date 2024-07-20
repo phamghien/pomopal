@@ -1,6 +1,8 @@
 const startButton = document.getElementById("start");
 const stopButton = document.getElementById("stop");
 const resetButton = document.getElementById("reset");
+const timer = document.getElementById("timer");
+
 const video = document.getElementById('webcam');
 const liveView = document.getElementById('liveView');
 const demosSection = document.getElementById('demos');
@@ -54,7 +56,8 @@ function predictWebcam() {
 
     // Phone detection 
     cocoPredictions.forEach(prediction => {
-      if (prediction.class === 'cell phone' && prediction.score > 0.5) {
+      //prediction.class === 'cell phone' &&
+      if (prediction.score > 0.5) {
         const p = document.createElement('p');
         p.innerText = `${prediction.class} - with ${Math.round(parseFloat(prediction.score) * 100)}% confidence.`;
         p.style = `margin-left: ${prediction.bbox[0]}px; margin-top: ${prediction.bbox[1] - 10}px; width: ${prediction.bbox[2] - 10}px; top: 0; left: 0;`;
@@ -74,7 +77,7 @@ function predictWebcam() {
     poses.forEach(pose => {
       pose.keypoints.forEach(keypoint => {
         if (keypoint.score > 0.5) {
-          if(keypoint.part == 'nose' || keypoint.part == 'leftEye' || keypoint.part == 'rightEye' || keypoint.part == 'leftShoulder' || keypoint.part == 'rightShoulder' || keypoint.part == 'leftEar' || keypoint.part == 'rightEar') {
+          //if(keypoint.part == 'nose' || keypoint.part == 'leftEye' || keypoint.part == 'rightEye' || keypoint.part == 'leftShoulder' || keypoint.part == 'rightShoulder' || keypoint.part == 'leftEar' || keypoint.part == 'rightEar') {
             const { y, x } = keypoint.position;
             const circle = document.createElement('div');
             circle.classList.add('keypoint');
@@ -82,7 +85,7 @@ function predictWebcam() {
             circle.style.top = `${y}px`;
             liveView.appendChild(circle);
             children.push(circle);
-          }
+          //}
         }
       });
     });
@@ -92,18 +95,41 @@ function predictWebcam() {
 }
 
 
-function startTimer() {
-  console.log("start");
+
+
+let timeLeft = 1500; 
+let interval; 
+
+const updateTimer = () => { 
+  const minutes = Math.floor(timeLeft / 60); 
+  const seconds = timeLeft % 60; 
+  timer.innerHTML = `${minutes.toString().padStart(2,"0")}:${seconds.toString().padStart(2,"0")}`;
+
 }
 
-function stopTimer() {
-  console.log("stop");
-}
+const startTimer = () => { 
+  interval = setInterval(() => {
+    timeLeft--; 
+    updateTimer(); 
 
-function resetTimer() {
-  console.log("reset");
+    if(timeLeft == 0) { 
+      clearInterval(interval); 
+      alert("Time's Up!"); 
+      timeLeft = 1500; 
+      updateTimer(); 
+    }
+  }, 1000);
+}; 
+
+const stopTimer = () => clearInterval(interval); 
+
+const resetTimer = () => { 
+  clearInterval(interval); 
+  timeLeft = 1500; 
+  updateTimer(); 
 }
 
 startButton.addEventListener("click", startTimer);
 stopButton.addEventListener("click", stopTimer);
 resetButton.addEventListener("click", resetTimer);
+
