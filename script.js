@@ -26,8 +26,6 @@ async function enableCam(event) {
     return;
   }
 
-  event.target.classList.add('removed');
-
   const constraints = {
     video: true
   };
@@ -40,6 +38,7 @@ async function enableCam(event) {
     console.error('Error accessing webcam:', error);
   }
 }
+
 
 // Load models
 Promise.all([cocoSsd.load(), posenet.load()]).then(function ([coco, posenet]) {
@@ -95,7 +94,7 @@ function predictWebcam() {
 }
 
 
-
+// Timer 
 
 let timeLeft = 1500; 
 let interval; 

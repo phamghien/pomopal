@@ -2,13 +2,13 @@
   margin: 0; 
   padding: 0; 
   box-sizing: border-box; 
-  font-family: "helvetica, arial, sans-serif";
+  font-family: 'DeerHouseDemoRegular';
 }
 
 body {
   min-height: 100vh; 
-  background: rgb(176,15,15);
-  background: linear-gradient(39deg, rgba(176,15,15,1) 24%, rgba(229,23,23,1) 39%, rgba(233,70,70,1) 71%, rgba(252,135,135,1) 100%);
+  background: rgb(255,92,92);
+  background: radial-gradient(circle, rgba(255,92,92,1) 23%, rgba(255,17,17,1) 50%, rgba(191,21,21,1) 73%, rgba(176,15,15,1) 87%);
   display: flex; 
   align-items: center;
   justify-content: center;
@@ -21,13 +21,14 @@ body {
   justify-content: center;
   gap: 2em; 
   color: white; 
-  background-color: rgba(255, 255, 255, 0.20);
+  background-color: rgba(255, 255, 255, 0.30);
   border-radius: 2em;
   padding: 4em 2em; 
 }
 
 .title{ 
-  font-size: 3em; 
+  font-size: 3.5em; 
+  color: white; 
 }
 
 hr{ 
@@ -39,8 +40,9 @@ hr{
 }
 
 .timer{ 
-  font-size: 10em;
-  font-weight: 700;
+  font-family: Thick; 
+  font-size: 7em;
+  font-weight:500;
 }
 
 .button-wrapper{ 
@@ -49,8 +51,8 @@ hr{
 }
 
 button{ 
-  font-size: 2em; 
-  font-weight: 800; 
+  font-size: 1.5em; 
+  font-weight: 400; 
   letter-spacing: 1px;
   padding: 0.5em 1.5em;
   border-radius: 0.5em; 
@@ -76,6 +78,10 @@ button:hover{
   background-color: blue;
 }
 
+#webcamButton{ 
+  background-color: gray;
+}
+
 h1 {
   font-style: italic;
   color: black;
@@ -88,10 +94,6 @@ video {
 section {
   opacity: 1;
   transition: opacity 500ms ease-in-out;
-}
-
-.removed {
-  display: none;
 }
 
 .invisible {
@@ -139,4 +141,14 @@ section {
 
 #liveView {
   position: relative;
+}
+
+@font-face {
+  font-family: "DeerHouseDemoRegular";
+  src: url("../DeerHouseDemoRegular.ttf");
+}
+
+@font-face {
+  font-family: "Thick";
+  src: url("../Thick.otf");
 }
