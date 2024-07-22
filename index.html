@@ -21,20 +21,17 @@
         </div>
     
         <section id="demos" class="invisible"> 
-            
             <div id="liveView" class="camView">
                 <video id="webcam" autoplay width="640" height="480"></video>
             </div>
         </section>
     </div>
-    
 
     <!-- Import TensorFlow.js library -->
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.11.0/dist/tf.min.js" type="text/javascript"></script>
 
     <!-- Load coco-ssd model and posenet model for webcam detection -->
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/posenet"></script>
 
     <!-- Import the page's JavaScript to do some stuff -->
     <script type="module" src="script.js"></script>
