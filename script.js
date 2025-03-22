@@ -10,6 +10,10 @@ const enableWebcamButton = document.getElementById('webcamButton');
 let cocoModel = undefined;
 let children = [];
 
+document.getElementById("webcamButton").addEventListener("click", function () {
+  document.querySelector(".camView").classList.toggle("active");
+});
+
 function getUserMediaSupported() {
   return !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia);
 }

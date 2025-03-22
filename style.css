@@ -2,16 +2,17 @@
   margin: 0; 
   padding: 0; 
   box-sizing: border-box; 
-  font-family: 'DeerHouseDemoRegular';
+  font-family: 'Koplay';
 }
 
 body {
-  min-height: 100vh; 
-  background: rgb(255,92,92);
-  background: radial-gradient(circle, rgba(255,92,92,1) 23%, rgba(255,17,17,1) 50%, rgba(191,21,21,1) 73%, rgba(176,15,15,1) 87%);
+  background: #ffffff;
   display: flex; 
   align-items: center;
   justify-content: center;
+  background-size: 40px 40px;
+  background-image: linear-gradient(to right, #bad8ff, 1px, transparent 1px),
+  linear-gradient(to bottom, #bad8ff 1px, transparent 1px);
 }
 
 .container{
@@ -20,23 +21,16 @@ body {
   align-items: center;
   justify-content: center;
   gap: 2em; 
-  color: white; 
-  background-color: rgba(255, 255, 255, 0.30);
+  color: rgb(4, 4, 4); 
+  background-color: #bad8ff;
   border-radius: 2em;
-  padding: 4em 2em; 
+  padding: 6em 2em; 
+  margin: 2em 0; 
 }
 
 .title{ 
   font-size: 3.5em; 
-  color: white; 
-}
-
-hr{ 
-  width: 100%; 
-  background-color: white;
-  height: 5px;
-  border-radius: 1em;
-  border: none;
+  color: rgb(0, 0, 0); 
 }
 
 .timer{ 
@@ -67,15 +61,15 @@ button:hover{
 }
 
 #start{ 
-  background-color: green;
+  background-color: rgb(128, 200, 128);
 }
 
 #stop{
-  background-color: red;
+  background-color: rgb(213, 155, 155);
 }
 
 #reset{
-  background-color: blue;
+  background-color: rgb(98, 98, 180);
 }
 
 #webcamButton{ 
@@ -101,33 +95,41 @@ section {
 }
 
 .camView {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   margin-top: 20px;
-  border: 3px solid #e71919;
+  border: 3px solid #ffffff;
   width: 640px;
   height: 480px;
   content: "Webcam is not enabled";
   font-size: 1.2em;
   background-color: #f0f0f0;
   border-radius: 2em;
+}
 
-  
+.camView.active {
+  display: flex; 
 }
 
 .camView p {
   position: absolute;
   padding: 5px;
-  background-color: rgba(255, 111, 0, 0.85);
+  background-color: rgba(255, 255, 255, 0.85);
   color: #FFF;
-  border: 3px solid #e71919;
+  border: 3px solid #FFF;
   z-index: 2;
   font-size: 12px;
   border-radius: 2em;
 
 }
 
+.camView video { 
+  width: 100%; 
+  height: auto; 
+  border-radius: 1.5em;
+
+}
 .highlighter {
   background: rgba(223, 31, 31, 0.308);
   border: 1px dashed #fff;
