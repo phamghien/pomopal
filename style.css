@@ -24,8 +24,9 @@ body {
   color: rgb(4, 4, 4); 
   background-color: #bad8ff;
   border-radius: 2em;
-  padding: 6em 2em; 
+  padding: 3em 2em; 
   margin: 2em 0; 
+  width: 700px; 
 }
 
 .title{ 
@@ -58,6 +59,14 @@ button{
 
 button:hover{
   transform: translateY(-10px);
+}
+
+#twentyfive{
+  background-color: rgb(240, 192, 244);
+}
+
+#five{
+  background-color: rgb(240, 192, 244);
 }
 
 #start{ 

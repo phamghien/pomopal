@@ -1,6 +1,8 @@
 const startButton = document.getElementById("start");
 const stopButton = document.getElementById("stop");
 const resetButton = document.getElementById("reset");
+const twentyFiveButton = document.getElementById("twentyfive");
+const fiveButton = document.getElementById("five");
 const timer = document.getElementById("timer");
 
 const video = document.getElementById('webcam');
@@ -82,6 +84,16 @@ function predictWebcam() {
 let timeLeft = 1500; 
 let interval; 
 
+const breakTime = () => {
+  timeLeft = 300; 
+  updateTimer(); 
+}
+
+const workTime = () => {
+  timeLeft = 1500; 
+  updateTimer(); 
+}
+
 const updateTimer = () => { 
   const minutes = Math.floor(timeLeft / 60); 
   const seconds = timeLeft % 60; 
@@ -114,4 +126,7 @@ const resetTimer = () => {
 startButton.addEventListener("click", startTimer);
 stopButton.addEventListener("click", stopTimer);
 resetButton.addEventListener("click", resetTimer);
+fiveButton.addEventListener("click", breakTime);
+twentyFiveButton.addEventListener("click", workTime);
+
 
