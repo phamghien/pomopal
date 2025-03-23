@@ -2,7 +2,7 @@
   margin: 0; 
   padding: 0; 
   box-sizing: border-box; 
-  font-family: 'Koplay';
+  font-family: 'Handwrite';
 }
 
 body {
@@ -11,6 +11,7 @@ body {
   align-items: center;
   justify-content: center;
   background-size: 40px 40px;
+  min-height: 100vh;
   background-image: linear-gradient(to right, #bad8ff, 1px, transparent 1px),
   linear-gradient(to bottom, #bad8ff 1px, transparent 1px);
 }
@@ -22,7 +23,7 @@ body {
   justify-content: center;
   gap: 2em; 
   color: rgb(4, 4, 4); 
-  background-color: #bad8ff;
+  background-color: #cde2fcef;
   border-radius: 2em;
   padding: 3em 2em; 
   margin: 2em 0; 
@@ -35,9 +36,8 @@ body {
 }
 
 .timer{ 
-  font-family: Thick; 
-  font-size: 7em;
-  font-weight:500;
+  font-family: 'Handwrite'; 
+  font-size: 6em;
 }
 
 .button-wrapper{ 
@@ -107,14 +107,6 @@ section {
   display: none;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
-  border: 3px solid #ffffff;
-  width: 640px;
-  height: 480px;
-  content: "Webcam is not enabled";
-  font-size: 1.2em;
-  background-color: #f0f0f0;
-  border-radius: 2em;
 }
 
 .camView.active {
@@ -165,11 +157,6 @@ section {
 }
 
 @font-face {
-  font-family: "DeerHouseDemoRegular";
-  src: url("../DeerHouseDemoRegular.ttf");
-}
-
-@font-face {
-  font-family: "Thick";
-  src: url("../Thick.otf");
+  font-family: "Handwrite";
+  src: url("../Handwrite.ttf");
 }
