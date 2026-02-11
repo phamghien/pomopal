@@ -58,7 +58,7 @@ function predictWebcam() {
 
     // Phone detection 
     cocoPredictions.forEach(prediction => {
-      if (prediction.class === 'cell phone' && prediction.score > 0.5) {
+      if (prediction.class === 'cell phone' && prediction.score > 0.2) {
         const p = document.createElement('p');
         p.innerText = `Phone detected`;
         p.style = `margin-left: ${prediction.bbox[0]}px; margin-top: ${prediction.bbox[1] - 10}px; width: ${prediction.bbox[2] - 10}px; top: 0; left: 0;`;
