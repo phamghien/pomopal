@@ -2,6 +2,7 @@ const startButton = document.getElementById("start");
 const twentyFiveButton = document.getElementById("twentyfive");
 const fiveButton = document.getElementById("five");
 const timer = document.getElementById("timer");
+const tomato = document.getElementById("tomato"); 
 
 const video = document.getElementById('webcam');
 const liveView = document.getElementById('liveView');
@@ -9,6 +10,7 @@ const demosSection = document.getElementById('demos');
 const enableWebcamButton = document.getElementById('webcamButton');
 let cocoModel = undefined;
 let children = [];
+let sound = new Audio("eh.mp3")
 
 document.getElementById("webcamButton").addEventListener("click", function () {
   document.querySelector(".camView").classList.toggle("active");
@@ -42,6 +44,10 @@ async function enableCam(event) {
   }
 }
 
+// Tomato 
+let tomato_status = true; 
+let detection = false; 
+
 // Load model
 Promise.all([cocoSsd.load()]).then(function ([coco]) {
   cocoModel = coco;
@@ -54,9 +60,13 @@ function predictWebcam() {
     children.forEach(child => liveView.removeChild(child));
     children = [];
 
+    detection = false;
+
     // Phone detection 
     cocoPredictions.forEach(prediction => {
       if (prediction.class === 'cell phone' && prediction.score > 0.2) {
+        detection = true; 
+
         const p = document.createElement('p');
         p.innerText = `Phone detected`;
         p.style = `margin-left: ${prediction.bbox[0]}px; margin-top: ${prediction.bbox[1] - 10}px; width: ${prediction.bbox[2] - 10}px; top: 0; left: 0;`;
@@ -69,13 +79,29 @@ function predictWebcam() {
         liveView.appendChild(p);
         children.push(highlighter);
         children.push(p);
+     
       }
-    });
 
+    });
+    updateTomato();
     window.requestAnimationFrame(predictWebcam);
 
   });
 }
+function updateTomato() {
+  // Trigger ONLY once when phone appears
+  if (detection && tomato_status) {
+    tomato_status = false;
+    tomato.src = "tomato_sad.png";
+    sound.play(); 
+
+    setTimeout(() => {
+      tomato.src = "tomato_happy.png";
+      tomato_status = true;
+    }, 1000);
+  }
+}
+
 
 
 // Timer 
