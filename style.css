@@ -59,27 +59,19 @@ button:hover{
 }
 
 #twentyfive{
-  background-color: rgb(240, 192, 244);
+  background-color: #5b9724;
 }
 
 #five{
-  background-color: rgb(240, 192, 244);
+  background-color: #e92e25;
 }
 
 #start{ 
-  background-color: rgb(128, 200, 128);
-}
-
-#stop{
-  background-color: rgb(213, 155, 155);
-}
-
-#reset{
-  background-color: rgb(98, 98, 180);
+  background-color: #e92e25;
 }
 
 #webcamButton{ 
-  background-color: gray;
+  background-color: #e92e25;
 }
 
 h1 {

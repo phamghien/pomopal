@@ -1,6 +1,4 @@
 const startButton = document.getElementById("start");
-const stopButton = document.getElementById("stop");
-const resetButton = document.getElementById("reset");
 const twentyFiveButton = document.getElementById("twentyfive");
 const fiveButton = document.getElementById("five");
 const timer = document.getElementById("timer");
@@ -84,14 +82,21 @@ function predictWebcam() {
 let timeLeft = 1500; 
 let interval; 
 
+// Start/Pause
+let start = true; 
+
 const breakTime = () => {
   timeLeft = 300; 
   updateTimer(); 
+  twentyFiveButton.style.backgroundColor = "#e92e25";
+  fiveButton.style.backgroundColor = "#5b9724";
 }
 
 const workTime = () => {
   timeLeft = 1500; 
   updateTimer(); 
+  twentyFiveButton.style.backgroundColor = "#5b9724";
+  fiveButton.style.backgroundColor = "#e92e25";
 }
 
 const updateTimer = () => { 
@@ -102,20 +107,28 @@ const updateTimer = () => {
 }
 
 const startTimer = () => { 
-  interval = setInterval(() => {
-    timeLeft--; 
-    updateTimer(); 
-
-    if(timeLeft == 0) { 
-      clearInterval(interval); 
-      alert("Time's Up!"); 
-      timeLeft = 1500; 
+  if(start == true) { 
+    startButton.innerHTML = 'pause';
+    start = false; 
+    interval = setInterval(() => {
+      timeLeft--; 
       updateTimer(); 
-    }
-  }, 1000);
+
+      if(timeLeft == 0) { 
+        clearInterval(interval); 
+        alert("Time's Up!"); 
+        timeLeft = 1500; 
+        updateTimer(); 
+      }
+    }, 1000);
+  } else { 
+    startButton.innerHTML = 'start';
+    start = true; 
+    clearInterval(interval); 
+
+  }
 }; 
 
-const stopTimer = () => clearInterval(interval); 
 
 const resetTimer = () => { 
   clearInterval(interval); 
@@ -124,8 +137,6 @@ const resetTimer = () => {
 }
 
 startButton.addEventListener("click", startTimer);
-stopButton.addEventListener("click", stopTimer);
-resetButton.addEventListener("click", resetTimer);
 fiveButton.addEventListener("click", breakTime);
 twentyFiveButton.addEventListener("click", workTime);
 
