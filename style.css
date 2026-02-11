@@ -23,6 +23,10 @@ body {
 
 }
 
+.heading { 
+  margin-bottom: -25px;
+}
+
 .container{
   display: flex; 
   flex-direction: column;
@@ -40,6 +44,15 @@ body {
   color: rgb(0, 0, 0); 
 }
 
+.timer-container{ 
+  background-color: #e92f2565;
+  width: 445px;
+  padding: 10px; 
+  display: flex;
+  justify-content: center;
+  margin: -20px;
+  border-radius: 15px;
+}
 .timer{ 
   font-family: "Fredoka", sans-serif;
   font-size: 6em;
