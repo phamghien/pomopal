@@ -1,8 +1,16 @@
+@font-face {
+  font-family: "Fredoka";
+  src: url("fredoka-bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 * { 
   margin: 0; 
   padding: 0; 
   box-sizing: border-box; 
-  font-family: 'ch.otf';
+  font-family: "Fredoka", sans-serif;
 }
 
 body {
@@ -33,7 +41,7 @@ body {
 }
 
 .timer{ 
-  font-family: 'ch.otf'; 
+  font-family: "Fredoka", sans-serif;
   font-size: 6em;
 }
 
@@ -145,7 +153,3 @@ section {
   position: relative;
 }
 
-@font-face {
-  font-family: "Handwrite";
-  src: url("../Handwrite.ttf");
-}
